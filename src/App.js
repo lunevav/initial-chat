@@ -21,7 +21,8 @@ class App extends Component {
   onValue = (e) => this.setState({message: e.target.value});
 
 
-  sendMessage = () => {
+  sendMessage = (e) => {
+      e.preventDefault();
       this.props.sendMessage(this.state.message);
       this.setState({
           message: ""
@@ -39,8 +40,10 @@ class App extends Component {
           <ul>
               {messages}
           </ul>
-          <input value={this.state.message} onChange={this.onValue} type="text"/>
-          <button onClick={this.sendMessage}>SEND</button>
+          <form onSubmit={this.sendMessage}>
+              <input value={this.state.message} onChange={this.onValue} type="text"/>
+              <button type="submit">SEND</button>
+          </form>
       </div>
     );
   }

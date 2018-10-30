@@ -32,7 +32,10 @@ class App extends Component {
   render() {
       console.log(this.props.MESSAGES);
       const messages = this.props.MESSAGES.length > 0 ? this.props.MESSAGES.map(item => (
-          <li key={item.id}><strong>{item.name}:</strong> {item.message}</li>
+          <li key={item.id}>
+              <strong>{item.name}:</strong>
+              {item.message.length > 15 ? ' ya eby gusei' : item.message}
+              </li>
         )
       ) : <div>Loading....</div>;
     return (

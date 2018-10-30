@@ -1,32 +1,32 @@
-.item {
-  width: 50px;
-  height: 50px;
-  background: rebeccapurple;
-  color: white;
-  font-size: 17px;
-  line-height: 3;
-  font-family: "Droid Sans Mono";
-  margin: 10px;
+div {
   text-align: center;
 }
+body {
+  background: black;
+}
 
-
-.itemRed {
-  width: 50px;
-  height: 50px;
-  background: red;
+ul {
+  width: 400px;
+  background: black;
   color: white;
-  font-size: 17px;
-  line-height: 3;
-  font-family: "Droid Sans Mono";
-  margin: 10px;
-  text-align: center;
+  margin: 0 auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding-bottom: 10px;
 }
 
-.red {
-  color: red;
+ul li {
+  list-style: none;
+  margin: 5px;
+  transition: 1s ease;
+}
+li:last-child {
+  color: orange;
 }
 
-.green {
-  color: green;
+input {
+  width: 380px;
+  height: 30px;
+  margin: 3px;
 }

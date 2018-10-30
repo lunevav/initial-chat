@@ -7,7 +7,7 @@ import {
 
 export const fetchMessages = () => (dispatch, getState, getFirebase) => {
     const firebase = getFirebase()
-    const messages = firebase.database().ref('messages/').limitToLast(50)
+    const messages = firebase.database().ref('messages/').limitToLast(10)
 
     dispatch({ type: GET_MESSAGES_PENDING });
 

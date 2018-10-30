@@ -39,7 +39,7 @@ class App extends Component {
           <ul>
               {messages}
           </ul>
-          <input onChange={this.onValue} type="text"/>
+          <input value={this.state.message} onChange={this.onValue} type="text"/>
           <button onClick={this.sendMessage}>SEND</button>
       </div>
     );

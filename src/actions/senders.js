@@ -7,6 +7,9 @@ import {
 export const sendMessage = (message) =>
     (dispatch, getState, getFirebase) => {
         dispatch({ type: SEND_MESSAGE_PENDING });
+        if (message.length === 0) {
+            return;
+        }
         if (!localStorage.getItem('userData')) {
             return;
         }

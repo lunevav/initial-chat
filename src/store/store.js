@@ -28,7 +28,10 @@ const rrfConfig = {
 };
 
 firebase.initializeApp(config);
-localStorage.setItem('userData', 'Michael');
+
+const name = prompt();
+alert("Hello: " + name);
+localStorage.setItem('userData', name);
 
 // REMOTE MIDDLWARES
 export default function configStore(initialState) {

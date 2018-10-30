@@ -1,32 +1,107 @@
-div {
-  text-align: center;
+.messsages-container {
+
+  color: white;
+  padding-bottom: 10px;
+  transition: 2s ease;
 }
+
 body {
-  background: black;
+  background-image: url('abstract-background-blur-949587.jpg');
+  -webkit-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+.input-container {
+  width: 300px;
+  height: 50px;
+  margin: 0 auto;
+
+
 }
 
 ul {
-  width: 400px;
-  background: black;
-  color: white;
-  margin: 0 auto;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
   padding-bottom: 10px;
+  width: 500px;
+  height: 470px;
+  overflow: hidden;
+  overflow-y: scroll;
+
 }
 
-ul li {
+ul::-webkit-scrollbar { width: 0 !important }
+
+li {
   list-style: none;
-  margin: 5px;
-  transition: 1s ease;
+  text-align: left;
+  margin-top: 15px;
+  display: flex;
 }
-li:last-child {
-  color: orange;
+
+li .name {
+  width: 70px;
+  height: 25px;
+  min-width: 70px;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin: 5px 20px 5px 5px;
+  background: white;
+  color: black;
+  border: 1px solid grey;
+  text-align: center;
 }
+
+.message  {
+  clear: both;
+  color: black;
+  padding: 6px 10px 7px;
+  border-radius: 0 20px 20px 20px;
+  background: #eee;
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.4;
+  position: relative;
+  border: 1px solid #ccc;
+  word-break: break-word;
+  max-width: 300px;
+  height: auto;
+  display: block;
+}
+
+
+.name {
+  transition: 2s ease;
+
+}
+li:last-child .name {
+  color: orangered;
+}
+
 
 input {
-  width: 380px;
-  height: 30px;
-  margin: 3px;
+  padding:15px 10px;
+  border: none;
+  outline: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 100%;
+  padding-left: 10px;
+  background-image: url("send-button.png");
+  background-position: 92% 50%;
+  background-repeat: no-repeat;
 }
+
+button {
+  display: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(0,0,0,.35);}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(0,0,0,.35);}
+:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(0,0,0,.35);}
+:-moz-placeholder { /* Firefox 18- */
+  color: rgba(0,0,0,.35);}

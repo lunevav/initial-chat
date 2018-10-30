@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 import './App.css';
 
 // @REDUX ACTIONS
 import { sendMessage } from './actions/senders';
-
-import Navigation from './components/Navigation';
-import messageReducer from "./reducers/messagesReducer";
 
 class App extends Component {
 
@@ -16,9 +14,30 @@ class App extends Component {
         this.state = {
             message: ""
         }
+        this.global = React.createRef();
 
     }
-  onValue = (e) => this.setState({message: e.target.value});
+
+
+    scrollToBottom = () => {
+        const scrollHeight =  this._global.scrollHeight;
+        const height =  this._global.clientHeight;
+        const maxScrollTop = scrollHeight - height;
+        this._global.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
+    }
+
+    componentDidMount() {
+        this.scrollToBottom();
+        this._input.focus();
+    }
+
+
+    componentWillReceiveProps(nextProps) {
+            this.scrollToBottom();
+    }
+
+
+    onValue = (e) => this.setState({message: e.target.value});
 
 
   sendMessage = (e) => {
@@ -30,23 +49,30 @@ class App extends Component {
   }
 
   render() {
-      console.log(this.props.MESSAGES);
       const messages = this.props.MESSAGES.length > 0 ? this.props.MESSAGES.map(item => (
           <li key={item.id}>
-              <strong>{item.name}:</strong>
-              {item.message.length > 15 ? ' ya eby gusei' : item.message}
-              </li>
+              <span className="name">{item.name}:</span>
+              <span className="message">{item.message}</span>
+          </li>
         )
       ) : <div>Loading....</div>;
     return (
       <div className="App">
-          <ul>
-              {messages}
-          </ul>
-          <form onSubmit={this.sendMessage}>
-              <input value={this.state.message} onChange={this.onValue} type="text"/>
-              <button type="submit">SEND</button>
-          </form>
+          <div  className="messsages-container">
+              <ul ref={(ref) => this._global = ref}>
+                  {messages}
+              </ul>
+          </div>
+          <div className="input-container">
+              <form onSubmit={this.sendMessage}>
+                  <input
+                      value={this.state.message}
+                      placeholder="Type your message"
+                      ref={(ref) => this._input = ref}
+                      onChange={this.onValue} type="text"/>
+                  <button type="submit">SEND</button>
+              </form>
+          </div>
       </div>
     );
   }

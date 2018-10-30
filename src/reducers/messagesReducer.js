@@ -18,7 +18,7 @@ export default function messageReducer(state = initialState, action) {
                 status: { status: 'pending' }
             }
         case GET_MESSAGES_SUCCESS: {
-            const messages = Object.values(action.payload)
+            const messages = action.payload ? Object.values(action.payload) : []
             const PARSED_MESSAGE = [];
             for(let i = 0; i < messages.length; i++) {
                 PARSED_MESSAGE.push({

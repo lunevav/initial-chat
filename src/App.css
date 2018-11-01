@@ -1,96 +1,93 @@
-.messsages-container {
+.App {
+  display: flex;
+  justify-content: center;
+  font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Helvetica,Verdana,sans-serif;
+}
 
-  color: white;
-  padding-bottom: 10px;
-  transition: 2s ease;
+.App .messsages-container {
+  flex-grow: 2;
+  color: black;
+  height: 675px;
+}
+
+.App .active-users-list {
+  border: 1px solid grey;
+  flex-grow: 1;
+}
+
+.App .input-container {
+  width: 100%;
+  /*background: red;*/
+  position: absolute;
+  bottom: 0;
+}
+
+
+.messsages-container {
+  position: relative;
 }
 
 body {
-  background-image: url('abstract-background-blur-949587.jpg');
-  -webkit-background-size: cover;
-  background-size: cover;
   overflow: hidden;
 }
-.input-container {
-  width: 300px;
-  height: 50px;
-  margin: 0 auto;
 
-
-}
 
 ul {
-  padding-bottom: 10px;
-  width: 500px;
-  height: 470px;
-  overflow: hidden;
-  overflow-y: scroll;
-
+  width: 600px;
+  height: 600px;
+  overflow: scroll;
+  padding: 0;
+  margin-left: 20px;
 }
 
 ul::-webkit-scrollbar { width: 0 !important }
 
 li {
-  list-style: none;
-  text-align: left;
-  margin-top: 15px;
-  display: flex;
+ display: block;
+  width: 400px;
+  height: auto;
+  padding: 10px;
 }
 
 li .name {
-  width: 70px;
-  height: 25px;
-  min-width: 70px;
-  padding: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  margin: 5px 20px 5px 5px;
-  background: white;
-  color: black;
-  border: 1px solid grey;
-  text-align: center;
+  color: #0088cc;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .message  {
-  clear: both;
-  color: black;
-  padding: 6px 10px 7px;
-  border-radius: 0 20px 20px 20px;
-  background: #eee;
-  margin: 8px 0;
-  font-size: 14px;
-  line-height: 1.4;
-  position: relative;
-  border: 1px solid #ccc;
-  word-break: break-word;
-  max-width: 300px;
-  height: auto;
-  display: block;
+  font-weight: normal;
+}
+
+.avatar {
+  float: left;
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
+  text-align: center;
+  color: white;
+  background: #4a708b;
+  border-radius: 50%;
+  line-height: 2.3;
+  margin-right: 11px;
 }
 
 
 .name {
-  transition: 2s ease;
+
 
 }
 li:last-child .name {
-  color: orangered;
+
 }
 
 
 input {
-  padding:15px 10px;
-  border: none;
+  width: 98%;
+  height: 50px;
   outline: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  width: 100%;
+  font-size: 22px;
   padding-left: 10px;
-  background-image: url("send-button.png");
-  background-position: 92% 50%;
-  background-repeat: no-repeat;
 }
 
 button {

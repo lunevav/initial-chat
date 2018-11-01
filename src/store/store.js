@@ -31,7 +31,7 @@ firebase.initializeApp(config);
 
 const name = prompt();
 alert("Hello: " + name);
-localStorage.setItem('userData', name;
+localStorage.setItem('userData', name);
 
 // REMOTE MIDDLWARES
 export default function configStore(initialState) {

@@ -18,7 +18,6 @@ class App extends Component {
 
     }
 
-
     scrollToBottom = () => {
         const scrollHeight =  this._global.scrollHeight;
         const height =  this._global.clientHeight;
@@ -51,27 +50,29 @@ class App extends Component {
   render() {
       const messages = this.props.MESSAGES.length > 0 ? this.props.MESSAGES.map(item => (
           <li key={item.id}>
-              <span className="name">{item.name}:</span>
-              <span className="message">{item.message}</span>
+              <div className="avatar">{item.name[0].toUpperCase()}</div>
+              <div className="name">{item.name}</div>
+              <div className="message">{item.message}</div>
           </li>
         )
       ) : <div>Loading....</div>;
     return (
       <div className="App">
+          <div className="active-users-list"></div>
           <div  className="messsages-container">
               <ul ref={(ref) => this._global = ref}>
                   {messages}
               </ul>
-          </div>
-          <div className="input-container">
-              <form onSubmit={this.sendMessage}>
-                  <input
-                      value={this.state.message}
-                      placeholder="Type your message"
-                      ref={(ref) => this._input = ref}
-                      onChange={this.onValue} type="text"/>
-                  <button type="submit">SEND</button>
-              </form>
+              <div className="input-container">
+                  <form onSubmit={this.sendMessage}>
+                      <input
+                          value={this.state.message}
+                          placeholder="Write a message..."
+                          ref={(ref) => this._input = ref}
+                          onChange={this.onValue} type="text"/>
+                      <button type="submit">SEND</button>
+                  </form>
+              </div>
           </div>
       </div>
     );

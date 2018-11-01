@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import './App.css';
 
@@ -13,9 +12,9 @@ class App extends Component {
 
         this.state = {
             message: ""
-        }
-        this.global = React.createRef();
+        };
 
+        this.global = React.createRef();
     }
 
     scrollToBottom = () => {
@@ -23,21 +22,17 @@ class App extends Component {
         const height =  this._global.clientHeight;
         const maxScrollTop = scrollHeight - height;
         this._global.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
-    }
+    };
 
     componentDidMount() {
         this.scrollToBottom();
         this._input.focus();
     }
 
-
     componentWillReceiveProps(nextProps) {
             this.scrollToBottom();
     }
-
-
     onValue = (e) => this.setState({message: e.target.value});
-
 
     sendMessage = (e) => {
       e.preventDefault();
@@ -45,7 +40,7 @@ class App extends Component {
       this.setState({
           message: ""
       });
-    }
+    };
 
     randomColor(str) {
         let hash = 0;

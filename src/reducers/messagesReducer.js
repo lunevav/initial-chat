@@ -7,7 +7,7 @@ import {
 const initialState = {
     messages: [],
     error: null,
-    status: { status: '' }
+    status: {status: ''}
 };
 
 export default function messageReducer(state = initialState, action) {
@@ -15,29 +15,29 @@ export default function messageReducer(state = initialState, action) {
         case GET_MESSAGES_PENDING:
             return {
                 ...state,
-                status: { status: 'pending' }
+                status: {status: 'pending'}
             }
         case GET_MESSAGES_SUCCESS: {
             const messages = action.payload ? Object.values(action.payload) : []
             const PARSED_MESSAGE = [];
-            for(let i = 0; i < messages.length; i++) {
+            for (let i = 0; i < messages.length; i++) {
                 PARSED_MESSAGE.push({
                     id: Object.keys(action.payload)[i],
                     message: messages[i].message,
-                    name: messages[i].name,
+                    name: messages[i].name
                 })
             }
             return {
                 ...state,
                 messages: PARSED_MESSAGE,
-                status: { status: 'success' }
+                status: {status: 'success'}
             }
         }
         case GET_MESSAGES_FAILED: {
             return {
                 ...state,
                 error: action.payload,
-                status: { status: 'failed' }
+                status: {status: 'failed'}
             }
         }
         default: {

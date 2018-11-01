@@ -39,18 +39,29 @@ class App extends Component {
     onValue = (e) => this.setState({message: e.target.value});
 
 
-  sendMessage = (e) => {
+    sendMessage = (e) => {
       e.preventDefault();
       this.props.sendMessage(this.state.message);
       this.setState({
           message: ""
       });
-  }
+    }
+
+    randomColor(str) { // java String#hashCode
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        let c = (hash & 0x00FFFFFF)
+            .toString(16)
+            .toUpperCase();
+        return '#'+"00000".substring(0, 6 - c.length) + c;
+    }
 
   render() {
       const messages = this.props.MESSAGES.length > 0 ? this.props.MESSAGES.map(item => (
           <li key={item.id}>
-              <div className="avatar">{item.name[0].toUpperCase()}</div>
+              <div className="avatar" style={{backgroundColor:this.randomColor(item.name)}}>{item.name[0].toUpperCase()}</div>
               <div className="name">{item.name}</div>
               <div className="message">{item.message}</div>
           </li>

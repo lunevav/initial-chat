@@ -29,8 +29,8 @@ const rrfConfig = {
 
 firebase.initializeApp(config);
 
-// const name = prompt();
-// alert("Hello: " + name);
+const name = prompt();
+alert("Hello: " + name);
 localStorage.setItem('userData', 'Michael Konchakovskyy');
 
 // REMOTE MIDDLWARES

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {randomColor} from "../../utils/randomColor";
-
+import { notifyMe } from '../../utils/showNotification';
 // @COMPONENTS
 import MessageItem from './MessageItem';
 
@@ -20,7 +19,9 @@ export default class MessagesList extends Component{
 
     componentDidUpdate() {
         // EXAMPLE
-        document.title = this.props.messages[this.props.messages.length -1].message;
+        const lastMessage = this.props.messages[this.props.messages.length -1].message;
+        document.title = lastMessage;
+        notifyMe(lastMessage);
         this.scrollToBottom();
     }
 

@@ -22,6 +22,7 @@ export const fetchMessages = () => (dispatch, getState, getFirebase) => {
     });
 };
 
+
 export const getUserList = () => (dispatch, getState, getFirebase) => {
     const firebase = getFirebase()
     const messages = firebase.database().ref('users/')

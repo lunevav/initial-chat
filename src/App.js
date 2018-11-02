@@ -40,7 +40,7 @@ class App extends Component {
     };
 
   render() {
-      console.log('USER LIST',this.props.userList)
+
     const userList = this.props.userList.length > 0 ? this.props.userList.map(item => (
         <li style={{ color: item.status ? 'green' : 'red' }} key={item.id}>
             {item.name}

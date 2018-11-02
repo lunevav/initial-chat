@@ -27,6 +27,13 @@ export const getUserList = () => (dispatch, getState, getFirebase) => {
     const messages = firebase.database().ref('users/')
 
     messages.on('value',  (snapshot) => {
+
+        try {
+            Object.values(snapshot.val())
+        } catch (e) {
+            window.location.reload();
+        }
+
         dispatch({ type: GET_USER_LIST, payload: snapshot.val() });
     });
 };

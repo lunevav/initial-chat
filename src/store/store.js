@@ -32,7 +32,10 @@ firebase.initializeApp(config);
 
 const USER_FOR_DEVELOPMENT = 'development';
 
-const name = prompt();
+let name;
+while(!name) {
+    name = prompt();
+}
 alert("Hello: " + name);
 localStorage.setItem('userData', name);
 

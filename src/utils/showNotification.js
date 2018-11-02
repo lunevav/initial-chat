@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
         Notification.requestPermission();
 });
 
- export function notifyMe(body) {
+ export function notifyMe(title, body) {
     if (Notification.permission !== "granted")
         Notification.requestPermission();
     else {
 
-        var notification = new Notification('Notification title', {
+        var notification = new Notification(title, {
             icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
             body: body,
         });

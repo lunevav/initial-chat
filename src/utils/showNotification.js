@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         Notification.requestPermission();
 });
 
- export function notifyMe(body) {
+ export function  notifyMe(body) {
     if (Notification.permission !== "granted")
         Notification.requestPermission();
     else {

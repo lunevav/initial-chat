@@ -16,7 +16,6 @@ class App extends Component {
 
         this.global = React.createRef();
     }
-
     scrollToBottom = () => {
         const scrollHeight =  this._global.scrollHeight;
         const height =  this._global.clientHeight;
@@ -61,7 +60,6 @@ class App extends Component {
             return 'rgba(' + [(rgba >> 16) & 255, (rgba >> 8) & 255, rgba & 255].join(',') + ',0.1)';
         }
     }
-
   render() {
       const messages = this.props.MESSAGES.length > 0 ? this.props.MESSAGES.map(item => (
           <li key={item.id}>
@@ -100,13 +98,10 @@ const mapStateToProps = (state) => {
         MESSAGES: state.messageReducer.messages
     }
 };
-
-
 const mapDispatchToProps = (dispatch) => {
     return {
         sendMessage: (message) => dispatch(sendMessage(message))
     }
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(App)
 

@@ -1,7 +1,7 @@
 import {
     SEND_MESSAGE_PENDING,
     SEND_MESSAGE_FAILED,
-    SEND_MESSAGE_SUCCESS
+    SEND_MESSAGE_SUCCESS, GET_MESSAGES_SUCCESS
 } from '../ACTION_TYPES/ACTION_TYPES';
 
 import {
@@ -13,8 +13,16 @@ import uuidv1  from 'uuid/v1';
 // @TODO make more KPACuBO
 export const addUserAndUpdate = (status) =>
     (dispatch, getState, getFirebase) => {
+        const firebase = getFirebase();
+        const users = firebase.database().ref('users/');
+        users.on('value', function (snapshot) {
+            let values = Object.values(snapshot.val());
+            for (let i=0; i < values.length; i++){
+                if (values[i].name == localStorage.getItem('userData') && values[i])
+                    console.log('user already exist', values[i]);
+            }
+        });
 
-        const firebase = getFirebase()
         firebase.database().ref('users/' + localStorage.getItem('userData')).set({
             id: uuidv1(),
             name: localStorage.getItem('userData'),

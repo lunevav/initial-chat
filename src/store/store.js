@@ -33,6 +33,7 @@ firebase.initializeApp(config);
 const USER_FOR_DEVELOPMENT = 'development';
 
 const name = prompt();
+
 alert("Hello: " + name);
 localStorage.setItem('userData', name);
 
@@ -43,7 +44,7 @@ export default function configStore(initialState) {
         rootReducer,
         initialState,
         compose(
-            applyMiddleware(logger, thunk.withExtraArgument(getFirebase)),
+            applyMiddleware(thunk.withExtraArgument(getFirebase)),
             window.devToolsExtension ? window.devToolsExtension() : f => f,
             reactReduxFirebase(firebase, rrfConfig)
         )
@@ -53,7 +54,6 @@ export default function configStore(initialState) {
     // @LISTENERS
     store.dispatch(fetchMessages());
     store.dispatch(getUserList());
-
     store.dispatch(addUserAndUpdate(true));
     return  store;
 }

@@ -18,4 +18,4 @@ export const randomColor = (str) => {
     }
 }
 
-export default { randomColor }
+export default randomColor

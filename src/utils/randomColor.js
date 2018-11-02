@@ -1,4 +1,4 @@
-export function randomColor(str) {
+export const randomColor = (str) => {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
         hash = str.charCodeAt(i) + ((hash << 5) - hash);
@@ -14,10 +14,8 @@ export function randomColor(str) {
             rgba = [rgba[0], rgba[0], rgba[1], rgba[1], rgba[2], rgba[2]];
         }
         rgba = '0x' + rgba.join('');
-        return 'rgba(' + [(rgba >> 16) & 255, (rgba >> 8) & 255, rgba & 255].join(',') + ',0.1)';
+        return 'rgba(' + [(rgba >> 16) & 255, (rgba >> 8) & 255, rgba & 255].join(',') + ',0.3)';
     }
 }
 
-export default {
-    randomColor
-}
+export default { randomColor }

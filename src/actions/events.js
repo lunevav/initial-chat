@@ -28,11 +28,11 @@ export const getUserList = () => (dispatch, getState, getFirebase) => {
 
     messages.on('value',  (snapshot) => {
 
-        try {
-            Object.values(snapshot.val())
-        } catch (e) {
-            window.location.reload();
-        }
+        // try {
+        //     Object.values(snapshot.val())
+        // } catch (e) {
+        //     window.location.reload();
+        // }
 
         dispatch({ type: GET_USER_LIST, payload: snapshot.val() });
     });

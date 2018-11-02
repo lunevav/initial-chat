@@ -42,8 +42,8 @@ li:last-child .message:after {
 
 .App .active-users-list {
   border: 1px solid grey;
-    flex: 1 1 25%;
-    min-width: 220px;
+    flex: 1 1 20%;
+    min-width: 230px;
 }
 
 .App .input-container {
@@ -59,7 +59,7 @@ li:last-child .message:after {
   flex-direction: column;
   justify-content: space-between;
   color: white;
-  flex: 10 1 75%;
+  flex: 10 1 80%;
 }
 
 body {

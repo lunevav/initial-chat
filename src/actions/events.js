@@ -9,6 +9,8 @@ import {
     GET_USER_LIST
 } from '../ACTION_TYPES';
 
+import { notifyMe } from '../utils/showNotification.js';
+
 export const fetchMessages = () => (dispatch, getState, getFirebase) => {
     const firebase = getFirebase()
     const messages = firebase.database().ref('messages/').limitToLast(100)
@@ -16,8 +18,10 @@ export const fetchMessages = () => (dispatch, getState, getFirebase) => {
     dispatch({ type: GET_MESSAGES_PENDING });
 
     messages.on('value', function (snapshot) {
-        // notifyMe('New Message!');
-        console.log(snapshot.val());
+        let keys = Object.keys(snapshot.val())
+        let lastKey = keys[keys.length - 1]
+        notifyMe(snapshot.val()[lastKey]['name'], snapshot.val()[lastKey]['message']);
+
         dispatch({ type: GET_MESSAGES_SUCCESS, payload: snapshot.val() });
     });
 };

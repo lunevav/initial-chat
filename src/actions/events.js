@@ -1,9 +1,13 @@
+// @TODO MAKE KPaCuBO!
 import {
     GET_MESSAGES_FAILED,
     GET_MESSAGES_SUCCESS,
     GET_MESSAGES_PENDING
 } from '../ACTION_TYPES/ACTION_TYPES'
 
+import {
+    GET_USER_LIST
+} from '../ACTION_TYPES';
 
 export const fetchMessages = () => (dispatch, getState, getFirebase) => {
     const firebase = getFirebase()
@@ -18,6 +22,16 @@ export const fetchMessages = () => (dispatch, getState, getFirebase) => {
     });
 };
 
+export const getUserList = () => (dispatch, getState, getFirebase) => {
+    const firebase = getFirebase()
+    const messages = firebase.database().ref('users/')
+
+    messages.on('value',  (snapshot) => {
+        dispatch({ type: GET_USER_LIST, payload: snapshot.val() });
+    });
+};
+
 export default {
-    fetchMessages
+    fetchMessages,
+    getUserList
 }

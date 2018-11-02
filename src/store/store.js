@@ -9,7 +9,8 @@ import 'firebase/auth';
 
 
 // @LISTENERS GLOBAL
-import { fetchMessages } from '../actions/events';
+import { fetchMessages, getUserList } from '../actions/events';
+import { addUserAndUpdate } from '../actions/senders';
 
 import logger from 'redux-logger'
 // const db = require('firebase/database');
@@ -29,6 +30,8 @@ const rrfConfig = {
 
 firebase.initializeApp(config);
 
+const USER_FOR_DEVELOPMENT = 'development';
+
 const name = prompt();
 alert("Hello: " + name);
 localStorage.setItem('userData', name);
@@ -46,7 +49,11 @@ export default function configStore(initialState) {
         )
     );
 
-    store.dispatch(fetchMessages());
 
+    // @LISTENERS
+    store.dispatch(fetchMessages());
+    store.dispatch(getUserList());
+
+    store.dispatch(addUserAndUpdate(true));
     return  store;
 }

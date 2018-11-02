@@ -7,4 +7,8 @@ export const GET_MESSAGES_PENDING = 'GET_MESSAGES_PENDING';
 export const GET_MESSAGES_SUCCESS = 'GET_MESSAGES_SUCCESS';
 export const GET_MESSAGES_FAILED = 'GET_MESSAGES_FAILED';
 
+export const ADD_USER = 'ADD_USER';
+export const UPDATE_USER_STATUS = 'UPDATE_USER_STATUS';
+
+
 // -----------------------------------------------------------

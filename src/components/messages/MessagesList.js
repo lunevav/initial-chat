@@ -21,7 +21,7 @@ export default class MessagesList extends Component{
         // EXAMPLE
         const lastMessage = this.props.messages[this.props.messages.length -1].message;
         document.title = lastMessage;
-        notifyMe(lastMessage);
+        // notifyMe(lastMessage);
         this.scrollToBottom();
     }
 
